@@ -3,7 +3,10 @@
 
 ## Introduction
 
-This Terraform code will allow you deploy a WordPress and MySQL Database in an OCI Container Instance
+This Terraform code will allow you deploy a WordPress and MySQL Database in an OCI Container Instance. 
+This Terraform is automation to deploy the following architecture. 
+
+https://docs.oracle.com/en/solutions/oci-container-instances-for-containerized-applications/index.html
 
 ## Terraform Provider for Oracle Cloud Infrastructure
 The OCI Terraform Provider is now available for automatic download through the Terraform Provider Registry. 
