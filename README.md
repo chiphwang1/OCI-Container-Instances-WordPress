@@ -65,5 +65,4 @@ When you no longer need the deployment, you can run this command to destroy it:
 
     python destroy_env.py
 
-Note: Application deployment within OKE will lead to OCI LoadBalancer provisioning, created outside the Terraform realm. Consequently, terraform destroy operation will not be able to destroy OKE as dependent LB will stay untouched. Therefore you should destroy LB from OCI Console perspective beforehand. Then you can continue with terraform destroy command.
 
