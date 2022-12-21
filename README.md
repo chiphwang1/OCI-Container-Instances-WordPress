@@ -60,12 +60,12 @@ compartment_ocid = "<compartment_ocid>"
 
 #### Deploy:
 
-    python deploy_env.py
+    python3 deploy_env.py
 
 
 #### Destroy the Deployment
 When you no longer need the deployment, you can run this command to destroy it:
 
-    python destroy_env.py
+    python3 destroy_env.py
 
 
