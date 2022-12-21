@@ -5,11 +5,13 @@ import getpass
 import sys
 
 
-"""
-This function will check if the .oci config in the default location and if not prompt for the locatio of the
-file.
-"""
+
 def check_oci_config():
+
+        """
+        This function will check if the .oci config in the default location and if not prompt for the locatio of the
+        file.
+        """
         user = getpass.getuser()
         path = "/Users/" + user + "/.oci/config"
         path1 = "/home/" + user + "/.oci/config"
@@ -31,11 +33,12 @@ def check_oci_config():
         return config_file
 
 
-"""
-This function will check verify if all paramters are in the .oci config
-"""
+
 
 def verify_config(config_file):
+    """
+    This function will check verify if all paramters are in the .oci config
+    """
     print(config_file)
     config_paramaters = ['user', 'fingerprint', 'key_file', 'tenancy', 'region']
     for parameter in config_paramaters:
@@ -46,10 +49,12 @@ def verify_config(config_file):
         exit()
 
 
-"""
-This function will check read all the parameter in oci config
-"""
+
 def read_config(config_file):
+    """
+    This function will check read all the parameter in oci config
+    """
+
     tf_dict = {}
     verify_config_file =[]
     with open(config_file) as f:
@@ -62,9 +67,7 @@ def read_config(config_file):
     return tf_dict
    
 
-"""
-This function will export all paramaters in oci config as TF_VAR varaiables
-"""
+
 
 def get_compartment_id():
     compartment_id = input('enter the compartment_id for deploying the container instance: ')
@@ -73,6 +76,10 @@ def get_compartment_id():
 
 
 def export_tf_var(tf_dict):
+    """
+    This function will export all paramaters in oci config as TF_VAR varaiables
+    """
+
     compartment_id = get_compartment_id()
     os.environ["TF_VAR_compartment_ocid"] = compartment_id
     os.environ["TF_VAR_user_ocid"] = tf_dict["user"]
@@ -83,11 +90,14 @@ def export_tf_var(tf_dict):
 
 
 
-"""
-This function will run the terraform
-"""
+
 
 def run_terrafom():
+
+    """
+    This function will run the terraform
+    """
+
     process = subprocess.Popen(["terraform", "destroy", "-auto-approve"],stdout=subprocess.PIPE, bufsize=1)
     for line in iter(process.stdout.readline, b''):
         print(line.rstrip())

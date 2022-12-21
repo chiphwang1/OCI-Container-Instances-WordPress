@@ -5,11 +5,13 @@ import getpass
 import sys
 
 
-"""
-This function will check if the .oci config in the default location and if not prompt for the locatio of the
-file.
-"""
+
 def check_oci_config():
+
+        """
+        This function will check if the .oci config in the default location and if not prompt for the locatio of the
+        file.
+        """
         user = getpass.getuser()
         path = "/Users/" + user + "/.oci/config"
         path1 = "/home/" + user + "/.oci/config"
@@ -31,11 +33,13 @@ def check_oci_config():
         return config_file
 
 
-"""
-This function will verify if all paramters are in the .oci config
-"""
+
 
 def verify_config(config_file):
+
+    """
+    This function will verify if all paramters are in the .oci config
+    """
     print(config_file)
     config_paramaters = ['user', 'fingerprint', 'key_file', 'tenancy', 'region']
     for parameter in config_paramaters:
@@ -62,17 +66,22 @@ def read_config(config_file):
     return tf_dict
    
 
-"""
-This function will export all paramaters in oci config as TF_VAR varaiables
-"""
+
 
 def get_compartment_id():
+
+   
+
     compartment_id = input('enter the compartment_id for deploying the container instance: ')
     return(compartment_id)
 
 
 
 def export_tf_var(tf_dict):
+
+    """
+    This function will export all paramaters in oci config as TF_VAR varaiables
+    """
     compartment_id = get_compartment_id()
     os.environ["TF_VAR_compartment_ocid"] = compartment_id
     os.environ["TF_VAR_user_ocid"] = tf_dict["user"]
@@ -83,10 +92,11 @@ def export_tf_var(tf_dict):
 
 
 
-"""
-This function will run the terraform
-"""
+
 def run_terrafom():
+    """
+    This function will run the terraform
+    """
 
      # run terraform apply  on ./
     terraform_init = subprocess.getoutput("terraform  init")
