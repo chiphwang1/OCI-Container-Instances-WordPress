@@ -32,7 +32,7 @@ and [setup guide](https://www.terraform.io/docs/providers/oci/guides/version-3-u
 
 Now, you'll want a local copy of this repo. You can make that with the commands:
 
-    git clone https://github.com/chiphwang1/OCI-Container-Instances.git
+    git clone https://github.com/chiphwang1/OCI-Container-Instances-WordPress.git
     cd OCI-Container-Instances
   
 
